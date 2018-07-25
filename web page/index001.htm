@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Web Controller
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <h1><b>Arduino Camera Holder</b></h1>
+
+    <div class="main">
+        <p>Speed Control</p>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div>
+    </div>
+
+    <div class="right">
+
+    </div>
+
+    LOWER MOTOR
+    <button type="submit" class="button" id="left-arrow" onclick="moveLeft()">Left</button>
+    <button type="submit" class="button" id="right-arrow" onclick="moveRight()">Right</button>
+
+    <p id="demo-button"></p>
+    
+    UPPER MOTOR
+    <button type="submit" class="button" id="clock" onclick="moveClockwise()">Clockwise</button>
+    <button type="submit" class="button" id="cclock" onclick="moveCounterClockwise()">Counter-clockwise</button>
+
+    <p id="demo-button"></p>
+
+
+</body>
+</html>
