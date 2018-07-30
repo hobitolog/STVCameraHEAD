@@ -7,6 +7,7 @@ inputs or power blackouts can destabilize the system or tangle the wires.
 In order to use the STVCameraHEAD we just need to download:
 - [the Arduino IDE](https://www.arduino.cc/en/Main/Software)
 - [the code](adres)
+
 Then we must open it with downloaded earlier environment, connect the ethernet cable to the Arduino board, power up the hardware components and run the program.
 
 ## IP Confuguration
