@@ -1,82 +1,178 @@
 html{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
 }
 
 body{
-
+    width: auto;
+    height: auto;
+    background-color: #EBF1E6;
 }
 
 .header_panel{
-
+    width: auto;
+    height: auto;
 }
 
 .panel{
+width:100%;
+
 
 }
 
 .header{
-
+    width: auto;
+    height: auto;
 }
 
 .logo{
-
+    background-color: #D7E3CC;
 }
 
 .control_panel{
     text-align: center;
+    width: 100%;
+    height: 100%;
+    
 
 }
 
 .speed_panel{
+    width:98%;
+    background-color: #D7E3CC;
+    float: left;
+    margin: 1%;
+}
 
+
+.angle_panel{
+    width: 98%;
+    background-color: #D7E3CC;
+    float: left;
+    margin: 1%;
 }
 
 .upper_motor{
     float: left;
-    widht: 50%;
+    width: 46%;
     background-color: aliceblue;
-
+    margin: 1%;
+    padding: 1%;
+    
 }
 
-.subpanel{
-
-}
-
-.slider_container{
-
-}
-
-.subheader{
-
-}
-
-.motor_name{
-
-}
-
-.set_button{
-
-}
-
-button{
-
-}
-
-.step_slider{
-
-}
 
 .lower_motor{
     float: left;
-    widht: 50%;
+    width: 46%;
     background-color: beige;
+    padding: 1%;
+    margin: 1%;
+    
 }
 
-.angle_panel{
 
+
+.subpanel{
+    width:100%;
+}
+
+.slider_container{
+    width:100%;
+}
+
+.subheader{
+    
+}
+
+.motor_name{
+    float: left;
+    width: 50%;
+    
+}
+
+.set_button{
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+}
+
+button{
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+}
+
+
+
+.step_slider{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.step_slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.step_slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #618D35; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.step_slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #618D35; /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
 
 .cont_slider{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
 
+/* Mouse-over effects */
+.cont_slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.cont_slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #618D35; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.cont_slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #618D35; /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }

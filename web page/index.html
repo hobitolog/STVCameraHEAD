@@ -9,17 +9,17 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <div class="header_panel panel">
+        <div class="header_panel">
             <div class="header">
                 <div class="logo">
                     <h1><b>STVCameraHEAD</b></h1>
                 </div><!--logo-->
             </div><!--header-->
         </div><!--header_panel panel-->
-        <div class="control_panel panel">
-            <div class="speed_panel panel">
+        <div class="control_panel">
+            <div class="speed_panel">
                 <p>Speed Control</p>
-                <div class="upper_motor panel">
+                <div class="upper_motor">
                     <div class="subpanel ">
                         <div class="subpanel slider_container">
                             <div class="subheader">
@@ -27,16 +27,15 @@
                                     <p>Upper motor</p>
                                 </div><!--motor_name-->
                                 <div class="set_button">
-                                    <button type="submit" class="button" id="speed_upper" onclick="SetSpeedUpper()">Set</button>
+                                    <button type="submit" class="button" id="speed_upper" onclick="SendSpeed()">Set</button>
                                 </div><!--set_button-->
-                                <div class="step_slider">
-                                    
-                                </div><!--step_slider-->
-                            </div><!--subheader-->                    
+                                
+                            </div><!--subheader-->     
+                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">               
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--upper_motor panel-->
-                <div class="lower_motor panel">
+                <div class="lower_motor">
                     <div class="subpanel ">
                         <div class="subpanel slider_container">
                             <div class="subheader">
@@ -44,36 +43,34 @@
                                     <p>Lower motor</p>
                                 </div><!--motor_name-->
                                 <div class="set_button">
-                                    <button type="submit" class="button" id="speed_lower" onclick="SetSpeedLower()">Set</button>
+                                    <button type="submit" class="button" id="speed_lower" onclick="SendSpeed()">Set</button>
                                 </div><!--set_button-->
-                                <div class="step_slider">
-                                    
-                                </div><!--step_slider-->
+                                
                             </div><!--subheader--> 
+                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--lower_motor panel-->
             </div><!--speed_panel panel-->
-            <div class="angle_panel panel">
+            <div class="angle_panel">
                 <p>Angle Control</p>
-                <div class="upper_motor panel">
-                    <div class="subpanel ">
+                <div class="upper_motor">
+                    <div class="subpanel">
                         <div class="subpanel slider_container">
                             <div class="subheader">
                                 <div class="motor_name">
                                     <p>Upper motor</p>
                                 </div><!--motor_name-->
                                 <div class="set_button">
-                                    <button type="submit" class="button" id="angle_upper" onclick="SetAngleUpper()">Set</button>
+                                    <button type="submit" class="button" id="angle_upper" onclick="SendAngle()">Set</button>
                                 </div><!--set_button-->
-                                <div class="cont_slider">
-        
-                                </div><!--cont_slider-->
+                                
                             </div><!--subheader--> 
+                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--upper_motor panel-->
-                <div class="lower_motor panel">
+                <div class="lower_motor">
                     <div class="subpanel ">
                         <div class="subpanel slider_container">
                             <div class="subheader">
@@ -81,12 +78,11 @@
                                     <p>Lower motor</p>
                                 </div><!--motor_name-->
                                 <div class="set_button">
-                                    <button type="submit" class="button" id="angle_lower" onclick="SetAngleLower()">Set</button>
+                                    <button type="submit" class="button" id="angle_lower" onclick="SendAngle()">Set</button>
                                 </div><!--set_button-->
-                                <div class="cont_slider">
-        
-                                </div><!--cont_slider-->
+                                
                             </div><!--subheader--> 
+                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--lower_motor panel-->
