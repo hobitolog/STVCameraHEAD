@@ -9,16 +9,15 @@ angleD = "";
 function SendSpeed(){
     nocache = "&nocache=" + Math.random() * 1000000;
     var request = new XMLHttpRequest();
-    request.open("GET", "ajax_inputs&L1=" + "U" + speedU + "D" + speedD + "E" + nocache, true);
+    request.open("GET", "ajax_inputs&L1=" + "S" + speedU + "D" + speedD + "E" + nocache, true);
     request.send(null);
 }
 
 function SendAngle(){
     nocache = "&nocache=" + Math.random() * 1000000;
     var request = new XMLHttpRequest();
-    request.open("GET", "ajax_inputs&L1=" + "U" + angleU + "D" + angleD + "E" + nocache, true);
+    request.open("GET", "ajax_inputs&L1=" + "A" + angleU + "D" + angleD + "E" + nocache, true);
     request.send(null);
-<<<<<<< HEAD
 } 
 
 var radius = 100;
@@ -48,16 +47,14 @@ joystick.on('start end', function(evt, data) {
      ).on('pressure', function(evt, data) {
   position=data;
 });
-=======
-}
+
 
 
 function SendCoord(X,Y){
     nocache = "&nocache=" + Math.random() * 1000000;
     var request = new XMLHttpRequest();
-    request.open("GET", "ajax_inputs&L1=" + "X" + X + "Y" + Y + "E" + nocache, true);
+    request.open("GET", "ajax_inputs&L1=" + "X" + X + "D" + Y + "E" + nocache, true);
     request.send(null);
 }
 
 
->>>>>>> f08b94ff9fe897109bf481ed2dfc6b608733706b

@@ -1,5 +1,6 @@
 #include <AccelStepper.h>
 #include <MultiStepper.h>
+#include <String.h>
 
 #include <Ethernet.h>
 #include <SPI.h>
@@ -42,13 +43,13 @@ long initial_homing = 0;
 /* FILE PART */
 // File declaration
 File myFile;
-char fileName[] = "index001.htm";
+char fileName[] = "index.htm";
 
 /* NETWORK PART*/
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192, 168, 0, 10);
+IPAddress ip(192, 168, 0, 177);
 
 // Initialize the Ethernet server library
 // with the IP address and port you want to use

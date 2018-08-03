@@ -1,0 +1,531 @@
+<html>
+
+<head>
+    <title>
+        Web Controller
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <style>
+        @font-face {
+            font-family: myFirstFont;
+            src: url(HussarBoldWeb.woff);
+        }
+
+        html {
+            font-family: myFirstFont;
+            width: auto;
+            height: auto;
+        }
+
+        body {
+            width: auto;
+            height: auto;
+            background-color: #EBF1E6;
+        }
+
+        .header_panel {
+            width: auto;
+            height: auto;
+        }
+
+        .panel {
+            width: 100%;
+
+
+        }
+
+        div {
+            font-family: myFirstFont;
+
+        }
+
+        .header {
+            width: auto;
+            height: auto;
+        }
+
+        .logo {
+            font-family: myFirstFont;
+            background-color: #D7E3CC;
+            text-align: center;
+        }
+
+        .control_panel {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+        .speed_panel {
+            width: 98%;
+            background-color: #D7E3CC;
+            float: left;
+            margin: 1%;
+        }
+
+
+        .angle_panel {
+            width: 98%;
+            background-color: #D7E3CC;
+            float: left;
+            margin: 1%;
+        }
+
+        .joystick_panel {
+            width: 98%;
+            background-color: #D7E3CC;
+            float: left;
+            margin: 1%;
+        }
+
+        .upper_motor {
+            float: left;
+            width: 46%;
+            background-color: aliceblue;
+            margin: 1%;
+            padding: 1%;
+
+        }
+
+
+        .lower_motor {
+            float: left;
+            width: 46%;
+            background-color: beige;
+            padding: 1%;
+            margin: 1%;
+
+        }
+
+
+
+        .subpanel {
+            width: 100%;
+        }
+
+        .slider_container {
+            width: 100%;
+        }
+
+        .subheader {}
+
+        .motor_name {
+            float: left;
+            width: 50%;
+
+        }
+
+        .set_button {
+            float: left;
+            text-align: center;
+            vertical-align: middle;
+            width: 50%;
+        }
+
+        button {
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: auto;
+        }
+
+
+
+        .step_slider {
+            -webkit-appearance: none;
+            /* Override default CSS styles */
+            appearance: none;
+            width: 100%;
+            /* Full-width */
+            height: 25px;
+            /* Specified height */
+            background: #d3d3d3;
+            /* Grey background */
+            outline: none;
+            /* Remove outline */
+            opacity: 0.7;
+            /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s;
+            /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+
+        .step_slider:hover {
+            opacity: 1;
+            /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+        .step_slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /* Override default look */
+            appearance: none;
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: #618D35;
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
+        }
+
+        .step_slider::-moz-range-thumb {
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: #618D35;
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
+        }
+
+        .cont_slider {
+            -webkit-appearance: none;
+            /* Override default CSS styles */
+            appearance: none;
+            width: 100%;
+            /* Full-width */
+            height: 25px;
+            /* Specified height */
+            background: #d3d3d3;
+            /* Grey background */
+            outline: none;
+            /* Remove outline */
+            opacity: 0.7;
+            /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s;
+            /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+
+        .cont_slider:hover {
+            opacity: 1;
+            /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+        .cont_slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /* Override default look */
+            appearance: none;
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: #618D35;
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
+        }
+
+        .cont_slider::-moz-range-thumb {
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: #618D35;
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
+        }
+
+        #joystick-container {
+            border: solid 1px #000;
+            background-image: url(joystick2.png);
+            display: inline-block;
+        }
+
+        #joystick {
+            width: 100px;
+            height: 100px;
+            margin: 1px;
+            cursor: crosshair;
+        }
+
+        footer {
+            text-align: center;
+            width: 98%;
+            background-color: #D7E3CC;
+            float: left;
+            margin: 1%;
+        }
+    </style>
+    <script>
+        speedU = "";
+        speedD = "";
+
+        angleU = "";
+        angleD = "";
+
+
+
+        function SendSpeed() {
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            request.open("GET", "ajax_inputs&L1=" + "S" + speedU + "D" + speedD + "E" + nocache, true);
+            request.send(null);
+        }
+
+        function SendAngle() {
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            request.open("GET", "ajax_inputs&L1=" + "A" + angleU + "D" + angleD + "E" + nocache, true);
+            request.send(null);
+        }
+
+        var radius = 100;
+
+        var sampleJoystick = {
+            mode: 'static',
+            position: {
+                left: '50%',
+                top: '50%'
+            },
+            size: radius * 2,
+            color: 'black'
+        };
+
+        var joystick;
+        var position;
+        joystick = nipplejs.create(sampleJoystick);
+        joystick.on('start end', function (evt, data) {
+            position = data;
+        }).on('move', function (evt, data) {
+            position = data;
+        }).on('dir:up plain:up dir:left plain:left dir:down' +
+            'plain:down dir:right plain:right',
+            function (evt, data) {
+                //position=data;
+            }
+        ).on('pressure', function (evt, data) {
+            position = data;
+        });
+
+
+
+        function SendCoord(X, Y) {
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            request.open("GET", "ajax_inputs&L1=" + "X" + X + "D" + Y + "E" + nocache, true);
+            request.send(null);
+        }
+
+
+
+    </script>
+    <div class="header_panel">
+        <div class="header">
+            <div class="logo">
+                <h1>
+                    <b>STVCameraHEAD</b>
+                </h1>
+            </div>
+            <!--logo-->
+        </div>
+        <!--header-->
+    </div>
+    <!--header_panel panel-->
+    <div class="control_panel">
+        <div class="speed_panel">
+            <p>Speed Control</p>
+            <div class="upper_motor">
+                <div class="subpanel ">
+                    <div class="subpanel slider_container">
+                        <div class="subheader">
+                            <div class="motor_name">
+                                <p>Upper motor</p>
+                            </div>
+                            <!--motor_name-->
+                            <div class="set_button">
+                                <button type="submit" class="button" id="speed_upper" onclick="SendSpeed()">Set</button>
+                            </div>
+                            <!--set_button-->
+
+                        </div>
+                        <!--subheader-->
+                        <input type="range" min="0" max="350" value="0" class="step_slider" id="upperSpeedRange">
+                        <p>Value:
+                            <span id="upper_speed"></span>
+                        </p>
+                        <script>
+                            var slider_us = document.getElementById("upperSpeedRange");
+                            var output_us = document.getElementById("upper_speed");
+                            output_us.innerHTML = slider_us.value;
+
+                            slider_us.oninput = function () {
+                                output_us.innerHTML = this.value;
+                            }
+                        </script>
+                    </div>
+                    <!--subpanel slider_container-->
+                </div>
+                <!--subpanel-->
+            </div>
+            <!--upper_motor panel-->
+            <div class="lower_motor">
+                <div class="subpanel ">
+                    <div class="subpanel slider_container">
+                        <div class="subheader">
+                            <div class="motor_name">
+                                <p>Lower motor</p>
+                            </div>
+                            <!--motor_name-->
+                            <div class="set_button">
+                                <button type="submit" class="button" id="speed_lower" onclick="SendSpeed()">Set</button>
+                            </div>
+                            <!--set_button-->
+
+                        </div>
+                        <!--subheader-->
+                        <input type="range" min="0" max="700" value="0" class="step_slider" id="lowerSpeedRange">
+                        <p>Value:
+                            <span id="lower_speed"></span>
+                        </p>
+                        <script>
+                            var slider_ls = document.getElementById("lowerSpeedRange");
+                            var output_ls = document.getElementById("lower_speed");
+                            output_ls.innerHTML = slider_ls.value;
+
+                            slider_ls.oninput = function () {
+                                output_ls.innerHTML = this.value;
+                            }
+                        </script>
+                    </div>
+                    <!--subpanel slider_container-->
+                </div>
+                <!--subpanel-->
+            </div>
+            <!--lower_motor panel-->
+        </div>
+        <!--speed_panel panel-->
+        <div class="angle_panel">
+            <p>Angle Control</p>
+            <div class="upper_motor">
+                <div class="subpanel">
+                    <div class="subpanel slider_container">
+                        <div class="subheader">
+                            <div class="motor_name">
+                                <p>Upper motor</p>
+                            </div>
+                            <!--motor_name-->
+                            <div class="set_button">
+                                <button type="submit" class="button" id="angle_upper" onclick="SendAngle()">Set</button>
+                            </div>
+                            <!--set_button-->
+
+                        </div>
+                        <!--subheader-->
+                        <input type="range" min="-135" max="135" value="0" class="step_slider" id="upperAngleRange">
+                        <p>Value:
+                            <span id="upper_angle"></span>
+                        </p>
+                        <script>
+                            var slider_ua = document.getElementById("upperAngleRange");
+                            var output_ua = document.getElementById("upper_angle");
+                            output_ua.innerHTML = slider_ua.value;
+
+                            slider_ua.oninput = function () {
+                                output_ua.innerHTML = this.value;
+                            }
+                        </script>
+                    </div>
+                    <!--subpanel slider_container-->
+                </div>
+                <!--subpanel-->
+            </div>
+            <!--upper_motor panel-->
+            <div class="lower_motor">
+                <div class="subpanel ">
+                    <div class="subpanel slider_container">
+                        <div class="subheader">
+                            <div class="motor_name">
+                                <p>Lower motor</p>
+                            </div>
+                            <!--motor_name-->
+                            <div class="set_button">
+                                <button type="submit" class="button" id="angle_lower" onclick="SendAngle()">Set</button>
+                            </div>
+                            <!--set_button-->
+
+                        </div>
+                        <!--subheader-->
+                        <input type="range" min="-135" max="135" value="0" class="step_slider" id="lowerAngleRange">
+                        <p>Value:
+                            <span id="lower_angle"></span>
+                        </p>
+                        <script>
+                            var slider_la = document.getElementById("lowerAngleRange");
+                            var output_la = document.getElementById("lower_angle");
+                            output_la.innerHTML = slider_la.value;
+
+                            slider_la.oninput = function () {
+                                output_la.innerHTML = this.value;
+                            }
+                        </script>
+                    </div>
+                    <!--subpanel slider_container-->
+                </div>
+                <!--subpanel-->
+            </div>
+            <!--lower_motor panel-->
+        </div>
+        <!--angle_panel panel-->
+        <div id="zone_joystick">
+        </div>
+        <div class="joystick_panel">
+            <p>Joystick control</p>
+            <div id="joystick-container">
+                <div id="joystick"></div>
+            </div>
+            <p id="demo"></p>
+            <script>
+                var newX = 500;
+                var newY = 500;
+                var joystick = document.getElementById('joystick');
+                joystick.onmousemove = function (event) {
+                    if (event.buttons === 1) {
+                        var x = event.clientX - joystick.getBoundingClientRect().left;
+                        var y = event.clientY - joystick.getBoundingClientRect().top;
+
+                        newX = Math.ceil(x * 10);
+                        newY = Math.ceil(y * 10);
+
+                        var coords = "X coords: " + newX + ", Y coords: " + newY;
+                        document.getElementById("demo").innerHTML = coords;
+
+                        SendCoord(newX, newY);
+                    }
+                   
+                };
+            </script>
+
+        </div>
+        <!-- control_panel panel-->
+        <footer>
+            <div>Icons made by
+                <a href="https://www.flaticon.com/authors/butterflytronics" title="Butterflytronics">Butterflytronics</a> from
+                <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                    target="_blank">CC 3.0 BY</a>
+            </div>
+        </footer>
+</body>
+
+</html>
