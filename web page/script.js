@@ -18,3 +18,13 @@ function SendAngle(){
     request.open("GET", "ajax_inputs&L1=" + "U" + angleU + "D" + angleD + "E" + nocache, true);
     request.send(null);
 }
+
+
+function SendCoord(X,Y){
+    nocache = "&nocache=" + Math.random() * 1000000;
+    var request = new XMLHttpRequest();
+    request.open("GET", "ajax_inputs&L1=" + "X" + X + "Y" + Y + "E" + nocache, true);
+    request.send(null);
+}
+
+

@@ -87,6 +87,38 @@
                     </div><!--subpanel-->
                 </div><!--lower_motor panel-->
             </div><!--angle_panel panel-->
+            <div class="joystick_panel">
+                <p>Joystick control</p>
+                <div id="joystick-container"><div id="joystick"></div></div>
+                <p id="demo"></p>
+                <script>
+                    var newX = 500;
+                    var newY = 500;
+                    var joystick = document.getElementById('joystick');
+                    joystick.onmousemove = function (event) {
+                        if(event.buttons === 1) {
+                            var x = event.clientX - joystick.getBoundingClientRect().left;
+                            var y = event.clientY - joystick.getBoundingClientRect().top;
+                            
+                            newX = Math.ceil(x * 10);
+                            newY = Math.ceil(y * 10);
+                            
+                            var coords = "X coords: " + newX + ", Y coords: " + newY;
+                            document.getElementById("demo").innerHTML = coords;
+                            
+                            SendCoord(newX, newY);
+                        }
+                        else{
+                            newX = 500;
+                            newY = 500;
+                            var coords = "X coords: " + newX + ", Y coords: " + newY;
+                            document.getElementById("demo").innerHTML = coords;
+                            SendCoord(newX, newY);
+                        }
+                    };
+                </script>
+            </div>
+            
         </div><!-- control_panel panel-->
     </body>
 </html>
