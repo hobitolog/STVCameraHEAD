@@ -65,6 +65,13 @@ div {
     margin: 1%;
 }
 
+.joystick_panel{
+    width:98%;
+    background-color: #D7E3CC;
+    float: left;
+    margin: 1%;
+}
+
 .upper_motor{
     float: left;
     width: 46%;
@@ -188,4 +195,24 @@ button{
     height: 25px; /* Slider handle height */
     background: #618D35; /* Green background */
     cursor: pointer; /* Cursor on hover */
+}
+
+#joystick-container {
+    border: solid 1px #000;
+    background-image: url(joystick2.png);
+    display: inline-block;
+}
+#joystick {
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+    cursor: crosshair;
+}
+
+footer{
+    text-align: center;
+    width:98%;
+    background-color: #D7E3CC;
+    float: left;
+    margin: 1%;
 }
