@@ -1,13 +1,3 @@
-## STVCameraHEAD
-
-SpacjaTV Camera head project.
-
----
-
-## Overview
-
-Project design is to create Opensource
-
 # STVCameraHEAD
 In this project we control the movement of two step motors using the Arduino Uno R3. It is possible 
 to do it with the joystick or via webpage. The project is design in such a way that none of the user's 
