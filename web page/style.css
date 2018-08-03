@@ -195,3 +195,11 @@ button{
     margin: 1px;
     cursor: crosshair;
 }
+
+footer{
+    text-align: center;
+    width:98%;
+    background-color: #D7E3CC;
+    float: left;
+    margin: 1%;
+}
