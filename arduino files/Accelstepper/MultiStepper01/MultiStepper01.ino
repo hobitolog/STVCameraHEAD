@@ -18,9 +18,9 @@ void setup() {
   Serial.begin(9600);
 
   // Configure each stepper
-  stepper1.setMaxSpeed(200);
+  stepper1.setMaxSpeed(100);
   stepper1.setAcceleration(100.0);
-  stepper2.setMaxSpeed(400);
+  stepper2.setMaxSpeed(200);
   stepper2.setAcceleration(100.0);
 
   // Then give them to MultiStepper to manage
@@ -29,8 +29,8 @@ void setup() {
 
   long positions[2]; // Array of desired stepper positions
 
-positions[0] = 1000;
-  positions[1] = -5000;
+positions[0] = 0;
+  positions[1] = 10000;
   steppers.moveTo(positions);
   steppers.runSpeedToPosition(); // Blocks until all are in position
   delay(1000);

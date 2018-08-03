@@ -1,4 +1,10 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(HussarBoldWeb.woff);
+}
+
 html{
+    font-family: myFirstFont;
     width: auto;
     height: auto;
 }
@@ -20,13 +26,20 @@ width:100%;
 
 }
 
+div {
+    font-family: myFirstFont;
+    
+}
+
 .header{
     width: auto;
     height: auto;
 }
 
 .logo{
+    font-family: myFirstFont;
     background-color: #D7E3CC;
+    text-align: center;
 }
 
 .control_panel{

@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="script.js"></script>
+        <script src="virtualjoystick.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
@@ -31,7 +32,17 @@
                                 </div><!--set_button-->
                                 
                             </div><!--subheader-->     
-                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">               
+                            <input type="range" min="0" max="350" value="0" class="step_slider" id="upperSpeedRange">  
+                            <p>Value: <span id="upper_speed"></span></p>      
+                            <script>
+                            var slider_us = document.getElementById("upperSpeedRange");
+                            var output_us = document.getElementById("upper_speed");
+                            output_us.innerHTML = slider_us.value;
+
+                            slider_us.oninput = function() {
+                            output_us.innerHTML = this.value;
+                            }
+                            </script>       
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--upper_motor panel-->
@@ -47,7 +58,17 @@
                                 </div><!--set_button-->
                                 
                             </div><!--subheader--> 
-                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
+                            <input type="range" min="0" max="700" value="0" class="step_slider" id="lowerSpeedRange">
+                            <p>Value: <span id="lower_speed"></span></p> 
+                            <script>
+                            var slider_ls = document.getElementById("lowerSpeedRange");
+                            var output_ls = document.getElementById("lower_speed");
+                            output_ls.innerHTML = slider_ls.value;
+
+                            slider_ls.oninput = function() {
+                            output_ls.innerHTML = this.value;
+                            }
+                            </script> 
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--lower_motor panel-->
@@ -66,7 +87,17 @@
                                 </div><!--set_button-->
                                 
                             </div><!--subheader--> 
-                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
+                            <input type="range" min="-135" max="135" value="0" class="step_slider" id="upperAngleRange">
+                            <p>Value: <span id="upper_angle"></span></p>
+                            <script>
+                            var slider_ua = document.getElementById("upperAngleRange");
+                            var output_ua = document.getElementById("upper_angle");
+                            output_ua.innerHTML = slider_ua.value;
+
+                            slider_ua.oninput = function() {
+                            output_ua.innerHTML = this.value;
+                            }
+                            </script> 
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--upper_motor panel-->
@@ -82,11 +113,23 @@
                                 </div><!--set_button-->
                                 
                             </div><!--subheader--> 
-                            <input type="range" min="1" max="100" value="50" class="step_slider" id="myRange">
+                            <input type="range" min="-135" max="135" value="0" class="step_slider" id="lowerAngleRange">
+                            <p>Value: <span id="lower_angle"></span></p>
+                            <script>
+                            var slider_la = document.getElementById("lowerAngleRange");
+                            var output_la = document.getElementById("lower_angle");
+                            output_la.innerHTML = slider_la.value;
+
+                            slider_la.oninput = function() {
+                            output_la.innerHTML = this.value;
+                            }
+                            </script>
                         </div><!--subpanel slider_container-->
                     </div><!--subpanel-->
                 </div><!--lower_motor panel-->
             </div><!--angle_panel panel-->
+            <div id="zone_joystick">
+            </div>
         </div><!-- control_panel panel-->
     </body>
 </html>
