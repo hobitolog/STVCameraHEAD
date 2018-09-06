@@ -74,12 +74,21 @@ Then the following webpage should appear:
 
 ![Webpage](images/webpage.png)
 
-It's divided into 3 main sections - Speed Control, Angle Control and Joystick control
+It's divided into 3 main sections - Speed Control, Angle Control and Joystick Control.
+
+Speed Control and Angle Control are sliders with value feedback, and Joystick Control is a panel to click/touch and hold the cursor in order to move the camera head.
 
 ### Speed Control
 
-Default values are set to zero and you can change them at your will. The changes will affect the speed of steppers bth in online control and by physical joystick.
+Default values are set to zero and you can change them at your will. The changes will affect the speed of steppers both in online control or by physical joystick.
 
+### Angle Control
+
+Set angle you want and it will make the camera head move in the desired direction (point-to-point movement).
+
+### Joystick Control
+
+Touch/click to move the camera head in the desired direction.
 
 
 # Built With
@@ -88,6 +97,7 @@ Default values are set to zero and you can change them at your will. The changes
 - [Ethernet.h](https://www.arduinolibraries.info/libraries/ethernet)
 - [SPI.h](https://www.arduino.cc/en/Reference/SPI)
 - [SD.h](https://www.arduino.cc/en/Reference/SD)
+
 
 # License
 This project is licensed under the MIT License. The licence should be downloaded with the github code, if not you can find it [here.](https://github.com/hobitolog/STVCameraHEAD/blob/master/LICENSE)
