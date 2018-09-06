@@ -108,6 +108,7 @@ void loop()
               second = atoi(ssecond.c_str());
               uAngle = 10000.0 / float(first);
               dAngle = 5000.0 / float(second);
+              PlannedMove(uAngle, dAngle);
             }
             else if (CHOICE == 'X')
             {
@@ -348,4 +349,13 @@ void JoyMove(int xAxis, int yAxis)
   }
   stepper_up.runSpeed();
   stepper_down.runSpeed();
+}
+
+void PlannedMove(int angleU, int angleD){
+  stepper_up.setMaxSpeed(yMotorSpeed);
+  stepper_down.setMaxSpeed(xMotorSpeed);
+  stepper_up.setAcceleration(20);
+  stepper_down.setAcceleration(20);
+  stepper_up.moveTo(angleU);
+  stepper_down.moveTo(angleD);
 }

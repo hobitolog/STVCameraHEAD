@@ -7,7 +7,7 @@ Copyright (c) 2018 Krzysztof Stężała and Adam Banaszczyk
 /* Used Libraries */
 #include <AccelStepper.h>
 #include <MultiStepper.h>
-#include <String.h>
+#include <string.h>
 #include <Ethernet.h>
 #include <SPI.h>
 #include <SD.h>
@@ -114,6 +114,3 @@ char StrContains(char *str, char *sfind)
 
     return 0;
 }
-
-
-
