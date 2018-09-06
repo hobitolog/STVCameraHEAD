@@ -19,7 +19,6 @@ Copyright (c) 2018 Krzysztof Stężała and Adam Banaszczyk
 #define R_PIN A5
 
 
-// co dalej z tym?
 /* BUTTON PART */
 char BUTTON_PIN = 2;                /* Pin at which button is connected. */
 boolean is_Joystick = true;
@@ -76,6 +75,8 @@ int Distance = 0;
 int desiredDistance = 1000;
 int delayOn = 100;
 int delayOff = 189;
+int uAngle = 0;
+int dAngle = 0;
 
 // sets every element of str to 0 (clears array)
 void StrClear(char *str, char length){

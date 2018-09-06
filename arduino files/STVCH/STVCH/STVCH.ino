@@ -61,13 +61,6 @@ void loop()
               str_begin += 1;
             }
             char CHOICE = str_begin[0];
-            //str_begin++;
-            //Serial.println(*str_begin);
-
-            // Serial.print("X: ");
-            // Serial.print(first);
-            // Serial.print(" Y: ");
-            // Serial.println(second);
             if (CHOICE == 'S')
             {
               char *temp = ++str_begin;
@@ -94,6 +87,27 @@ void loop()
             }
             else if (CHOICE == 'A')
             {
+              char *temp = ++str_begin;
+              int first;
+              int second;
+              String ffirst = "";
+              String ssecond = "";
+              while (*temp != 'D')
+              {
+                ffirst = ffirst + *temp;
+                temp++;
+              }
+              temp++;
+
+              first = atoi(ffirst.c_str());
+              while (*temp != 'E')
+              {
+                ssecond = ssecond + *temp;
+                temp++;
+              }
+              second = atoi(ssecond.c_str());
+              uAngle = 10000.0 / float(first);
+              dAngle = 5000.0 / float(second);
             }
             else if (CHOICE == 'X')
             {
