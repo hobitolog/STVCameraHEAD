@@ -39,6 +39,9 @@ IPAddress ip(192, 168, 0, 177);
 
 ```
 
+From no on it should all work as expected. 
+Open Arduino IDE,  connect the ethernet cable to the Arduino board, power up the hardware components and run the program.
+
 ## IP configuration (extra bonus)
 
 If method above didn't workout it means that the network is probably densly populated. In this case it can be hard to have luck and hit the mark at once.
@@ -47,25 +50,34 @@ Try then downloading [nmap software](https://nmap.org/) and scan the network for
 
 ## Arduino code
 
-Then we must open it with downloaded earlier environment, connect the ethernet cable to the Arduino board, power up the hardware components and run the program.
+Arduino code is divided into two separate file in the name of readability - Header.h and STVCH.ino.
+
+## Web page code
+
+After testing different combinations for Arduino it appears to be best to have a single file both with html, css an javascript inside it. 
+User does not have to make any changes in the code unless he desperately wants to. Keep in mind to put the index.htm file onto your sd card and insert it into the Arduino Ethernet Shield. Otherwise it will be pretty hard to do anything.
+
+## Summary
+
+After steps above you should be able to fire up and use the camera head.
+
+# How to use?
 
 
 
-## IP Confuguration
-We are able to control the STVCameraHOLDER with a web iterface only when the ip implemented in the code corresponds 
-to the router which ethernet cable is connected to the Arduino UNO R3. The initial code correlates to the router in Spacja TV office.
 
 
-## Built With
+
+# Built With
 - [Accelstepper.h](https://www.arduinolibraries.info/libraries/accel-stepper)
 - [Multistepper.h](http://www.airspayce.com/mikem/arduino/AccelStepper/classMultiStepper.html)
 - [Ethernet.h](https://www.arduinolibraries.info/libraries/ethernet)
 - [SPI.h](https://www.arduino.cc/en/Reference/SPI)
 - [SD.h](https://www.arduino.cc/en/Reference/SD)
 
-## License
+# License
 This project is licensed under the MIT License. The licence should be downloaded with the github code, if not you can find it [here.](https://github.com/hobitolog/STVCameraHEAD/blob/master/LICENSE)
 
-## Authors
+# Authors
 - Adam Banaszczyk
 - Krzysztof Stężała

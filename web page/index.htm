@@ -6,7 +6,6 @@
     </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 
 <body>
@@ -35,13 +34,10 @@
 
         .panel {
             width: 100%;
-
-
         }
 
         div {
             font-family: myFirstFont;
-
         }
 
         .header {
@@ -59,8 +55,6 @@
             text-align: center;
             width: 100%;
             height: 100%;
-
-
         }
 
         .speed_panel {
@@ -69,7 +63,6 @@
             float: left;
             margin: 1%;
         }
-
 
         .angle_panel {
             width: 98%;
@@ -91,9 +84,7 @@
             background-color: aliceblue;
             margin: 1%;
             padding: 1%;
-
         }
-
 
         .lower_motor {
             float: left;
@@ -101,10 +92,7 @@
             background-color: beige;
             padding: 1%;
             margin: 1%;
-
         }
-
-
 
         .subpanel {
             width: 100%;
@@ -119,7 +107,6 @@
         .motor_name {
             float: left;
             width: 50%;
-
         }
 
         .set_button {
@@ -137,8 +124,6 @@
             right: 0;
             height: auto;
         }
-
-
 
         .step_slider {
             -webkit-appearance: none;
@@ -160,14 +145,12 @@
         }
 
         /* Mouse-over effects */
-
         .step_slider:hover {
             opacity: 1;
             /* Fully shown on mouse-over */
         }
 
         /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-
         .step_slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             /* Override default look */
@@ -213,14 +196,12 @@
         }
 
         /* Mouse-over effects */
-
         .cont_slider:hover {
             opacity: 1;
             /* Fully shown on mouse-over */
         }
 
         /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-
         .cont_slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             /* Override default look */
@@ -268,12 +249,10 @@
         }
     </style>
     <script>
-        speedU = "";
-        speedD = "";
-
-        angleU = "";
-        angleD = "";
-
+        speedU = 0;
+        speedD = 0;
+        angleU = 0;
+        angleD = 0;
 
 
         function SendSpeed() {
@@ -282,16 +261,13 @@
             request.open("GET", "ajax_inputs&L1=" + "S" + speedU + "D" + speedD + "E" + nocache, true);
             request.send(null);
         }
-
         function SendAngle() {
             nocache = "&nocache=" + Math.random() * 1000000;
             var request = new XMLHttpRequest();
             request.open("GET", "ajax_inputs&L1=" + "A" + angleU + "D" + angleD + "E" + nocache, true);
             request.send(null);
         }
-
         var radius = 100;
-
         var sampleJoystick = {
             mode: 'static',
             position: {
@@ -301,7 +277,6 @@
             size: radius * 2,
             color: 'black'
         };
-
         var joystick;
         var position;
         joystick = nipplejs.create(sampleJoystick);
@@ -317,18 +292,12 @@
         ).on('pressure', function (evt, data) {
             position = data;
         });
-
-
-
         function SendCoord(X, Y) {
             nocache = "&nocache=" + Math.random() * 1000000;
             var request = new XMLHttpRequest();
             request.open("GET", "ajax_inputs&L1=" + "X" + X + "D" + Y + "E" + nocache, true);
             request.send(null);
         }
-
-
-
     </script>
     <div class="header_panel">
         <div class="header">
@@ -371,7 +340,10 @@
 
                             slider_us.oninput = function () {
                                 output_us.innerHTML = this.value;
+                                speedU = this.value;
                             }
+
+                            SendSpeed()
                         </script>
                     </div>
                     <!--subpanel slider_container-->
@@ -405,7 +377,10 @@
 
                             slider_ls.oninput = function () {
                                 output_ls.innerHTML = this.value;
+                                speedD = this.value;
                             }
+
+                            SendSpeed()
                         </script>
                     </div>
                     <!--subpanel slider_container-->
@@ -443,7 +418,10 @@
 
                             slider_ua.oninput = function () {
                                 output_ua.innerHTML = this.value;
+                                angleU = this.value;
                             }
+
+                            SendAngle();
                         </script>
                     </div>
                     <!--subpanel slider_container-->
@@ -477,7 +455,10 @@
 
                             slider_la.oninput = function () {
                                 output_la.innerHTML = this.value;
+                                angleD = this.value;
                             }
+
+                            SendAngle();
                         </script>
                     </div>
                     <!--subpanel slider_container-->
@@ -512,18 +493,17 @@
 
                         SendCoord(newX, newY);
                     }
-                   
                 };
             </script>
-
         </div>
         <!-- control_panel panel-->
         <footer>
             <div>Icons made by
-                <a href="https://www.flaticon.com/authors/butterflytronics" title="Butterflytronics">Butterflytronics</a> from
+                <a href="https://www.flaticon.com/authors/butterflytronics" title="Butterflytronics">Butterflytronics</a>
+                from
                 <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
-                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
-                    target="_blank">CC 3.0 BY</a>
+                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC
+                    3.0 BY</a>
             </div>
         </footer>
 </body>
