@@ -63,8 +63,22 @@ After steps above you should be able to fire up and use the camera head.
 
 # How to use?
 
+## Overview
 
+Configure the camera head as stated above.
+Connect your laptop to the network, open web-browser and type the address of the camera head you obtained during  configuration process
 
+![Connect to camera head](images/connect.png)
+
+Then the following webpage should appear:
+
+![Webpage](images/webpage.png)
+
+It's divided into 3 main sections - Speed Control, Angle Control and Joystick control
+
+### Speed Control
+
+Default values are set to zero and you can change them at your will. The changes will affect the speed of steppers bth in online control and by physical joystick.
 
 
 
